@@ -138,6 +138,12 @@ body {
     margin-bottom: 25px;
 }
 
+.main__diaporama__miniature__textes__titre__temps i {
+    margin-right: -110px;
+    font-size: 22px;
+    height: 22px;
+}
+
 .main__diaporama__miniature__textes__titre {
     font-size: 18px;
     font-weight: 400;
