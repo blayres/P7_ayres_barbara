@@ -41,167 +41,131 @@
         </div>
 
         <div class="header__boutonsFiltres">
-            <button class="header__boutonsFiltres__ingredients">Ingredients
+            <button class="header__boutonsFiltres__ingredients" onclick="openDropDownIngredients()">Ingredients
                 <i class="fa-solid fa-chevron-down"></i></button>
-            <button class="header__boutonsFiltres__appareils">Appareils
+                <div id="recipeIngredient" class="header__boutonsFiltres__ingredients__dropDown" style="display: none;">
+                    <div class="header__boutonsFiltres__dropDown__input__icon">
+                        <input type="text" placeholder="Rechercher un ingrédient">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="header__boutonsFiltres__dropDown__liste">
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                    </div>
+                </div>
+            <button class="header__boutonsFiltres__appareils" onclick="openDropDownAppareils()">Appareils
                 <i class="fa-solid fa-chevron-down"></i></button>
-            <button class="header__boutonsFiltres__ustensiles">Ustensiles
+                <div id="recipeAppareils" class="header__boutonsFiltres__appareils__dropDown" style="display: none;">
+                    <div class="header__boutonsFiltres__dropDown__input__icon">
+                        <input id="inputAppareils" type="text" placeholder="Rechercher un appareil">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="header__boutonsFiltres__dropDown__liste">
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                    </div>
+                </div>
+            <button class="header__boutonsFiltres__ustensiles" onclick="openDropDownUstensiles()">Ustensiles
                 <i class="fa-solid fa-chevron-down"></i></button>
+                <div id="recipeUstensiles" class="header__boutonsFiltres__ustensiles__dropDown" style="display: none;">
+                    <div class="header__boutonsFiltres__dropDown__input__icon">
+                        <input id="inputUstensiles" type="text" placeholder="Rechercher un ustensile">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="header__boutonsFiltres__dropDown__liste">
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                        <p>Blablablabla</p>
+                    </div>
+                </div>
         </div>
     </header>
 
     <main class="container">
-        <section class="main__diaporama">
-
-            <div class="main__diaporama__miniature">
-                <div class="main__diaporama__miniature__photo"></div>
-                <div class="main__diaporama__miniature__textes">
-                    <div class="main__diaporama__miniature__textes__titre__temps">
-                        <h4 id="nameRecipe" class="main__diaporama__miniature__textes__titre"></h4>
-                        <i class="fa-regular fa-clock"></i> 
-                        <h4 id="timeRecipe" class="main__diaporama__miniature__textes__temps"></h4>
-                    </div>
-                    <div class="main__diaporama__miniature__textes__corps">
-                        <ul class="main__diaporama__miniature__textes__corps__gauche">
-                            <li><strong>Lait de coco:</strong> 400ml</li>
-                            <li><strong>Jus de citron:</strong> 2</li>
-                            <li><strong>Crème de coco:</strong> 4 cuillères</li>
-                            <li><strong>Sucre:</strong> 20g</li>
-                            <li><strong>Glaçons:</strong> 2</li>
-                        </ul>
-                        <p id="descriptionRecipe" class="main__diaporama__miniature__textes__corps__droite">
-                            Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main__diaporama__miniature">
-                <div class="main__diaporama__miniature__photo"></div>
-                <div class="main__diaporama__miniature__textes">
-                    <div class="main__diaporama__miniature__textes__titre__temps">
-                        <h4 class="main__diaporama__miniature__textes__titre">Limonade de Coco</h4>
-                        <i class="fa-regular fa-clock"></i> 
-                        <h4 class="main__diaporama__miniature__textes__temps">
-                            10 min
-                        </h4>
-                    </div>
-                    <div class="main__diaporama__miniature__textes__corps">
-                        <ul class="main__diaporama__miniature__textes__corps__gauche">
-                            <li><strong>Lait de coco:</strong> 400ml</li>
-                            <li><strong>Jus de citron:</strong> 2</li>
-                            <li><strong>Crème de coco:</strong> 4 cuillères</li>
-                            <li><strong>Sucre:</strong> 20g</li>
-                            <li><strong>Glaçons:</strong> 2</li>
-                        </ul>
-                        <p class="main__diaporama__miniature__textes__corps__droite">
-                            Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main__diaporama__miniature">
-                <div class="main__diaporama__miniature__photo"></div>
-                <div class="main__diaporama__miniature__textes">
-                    <div class="main__diaporama__miniature__textes__titre__temps">
-                        <h4 class="main__diaporama__miniature__textes__titre">Limonade de Coco</h4>
-                        <i class="fa-regular fa-clock"></i> 
-                        <h4 class="main__diaporama__miniature__textes__temps">
-                            10 min
-                        </h4>
-                    </div>
-                    <div class="main__diaporama__miniature__textes__corps">
-                        <ul class="main__diaporama__miniature__textes__corps__gauche">
-                            <li><strong>Lait de coco:</strong> 400ml</li>
-                            <li><strong>Jus de citron:</strong> 2</li>
-                            <li><strong>Crème de coco:</strong> 4 cuillères</li>
-                            <li><strong>Sucre:</strong> 20g</li>
-                            <li><strong>Glaçons:</strong> 2</li>
-                        </ul>
-                        <p class="main__diaporama__miniature__textes__corps__droite">
-                            Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main__diaporama__miniature">
-                <div class="main__diaporama__miniature__photo"></div>
-                <div class="main__diaporama__miniature__textes">
-                    <div class="main__diaporama__miniature__textes__titre__temps">
-                        <h4 class="main__diaporama__miniature__textes__titre">Limonade de Coco</h4>
-                        <i class="fa-regular fa-clock"></i> 
-                        <h4 class="main__diaporama__miniature__textes__temps">
-                            10 min
-                        </h4>
-                    </div>
-                    <div class="main__diaporama__miniature__textes__corps">
-                        <ul class="main__diaporama__miniature__textes__corps__gauche">
-                            <li><strong>Lait de coco:</strong> 400ml</li>
-                            <li><strong>Jus de citron:</strong> 2</li>
-                            <li><strong>Crème de coco:</strong> 4 cuillères</li>
-                            <li><strong>Sucre:</strong> 20g</li>
-                            <li><strong>Glaçons:</strong> 2</li>
-                        </ul>
-                        <p class="main__diaporama__miniature__textes__corps__droite">
-                            Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main__diaporama__miniature">
-                <div class="main__diaporama__miniature__photo"></div>
-                <div class="main__diaporama__miniature__textes">
-                    <div class="main__diaporama__miniature__textes__titre__temps">
-                        <h4 class="main__diaporama__miniature__textes__titre">Limonade de Coco</h4>
-                        <i class="fa-regular fa-clock"></i> 
-                        <h4 class="main__diaporama__miniature__textes__temps">
-                            10 min
-                        </h4>
-                    </div>
-                    <div class="main__diaporama__miniature__textes__corps">
-                        <ul class="main__diaporama__miniature__textes__corps__gauche">
-                            <li><strong>Lait de coco:</strong> 400ml</li>
-                            <li><strong>Jus de citron:</strong> 2</li>
-                            <li><strong>Crème de coco:</strong> 4 cuillères</li>
-                            <li><strong>Sucre:</strong> 20g</li>
-                            <li><strong>Glaçons:</strong> 2</li>
-                        </ul>
-                        <p class="main__diaporama__miniature__textes__corps__droite">
-                            Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main__diaporama__miniature">
-                <div class="main__diaporama__miniature__photo"></div>
-                <div class="main__diaporama__miniature__textes">
-                    <div class="main__diaporama__miniature__textes__titre__temps">
-                        <h4 class="main__diaporama__miniature__textes__titre">Limonade de Coco</h4>
-                        <i class="fa-regular fa-clock"></i> 
-                        <h4 class="main__diaporama__miniature__textes__temps">
-                            10 min
-                        </h4>
-                    </div>
-                    <div class="main__diaporama__miniature__textes__corps">
-                        <ul class="main__diaporama__miniature__textes__corps__gauche">
-                            <li><strong>Lait de coco:</strong> 400ml</li>
-                            <li><strong>Jus de citron:</strong> 2</li>
-                            <li><strong>Crème de coco:</strong> 4 cuillères</li>
-                            <li><strong>Sucre:</strong> 20g</li>
-                            <li><strong>Glaçons:</strong> 2</li>
-                        </ul>
-                        <p class="main__diaporama__miniature__textes__corps__droite">
-                            Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </section>
+        <section class="main__diaporama"></section>
     </main>
 <script src="index.js"></script>
 </body>
