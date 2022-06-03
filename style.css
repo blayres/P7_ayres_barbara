@@ -3,6 +3,26 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+body::-webkit-scrollbar {
+    width: 8px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: gray;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 0px solid transparent;
+    /* creates padding around scroll thumb */
+    height: 60px;
+}
+
 .container {
     max-width: 1440px;
     margin: auto;
@@ -81,15 +101,34 @@ body {
     border: none;
     border-radius: 5px;
     margin-right: 20px;
-    color: #fff;
     font-size: 16px;
     font-weight: 700;
+    color: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.header__boutonsFiltres button:hover {
+.header__boutonsFiltres input {
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
+    margin-right: -100px;
+    color: #fff;
+}
+
+.header__boutonsFiltres input::placeholder {
+    color: #fff;
+}
+
+.header__boutonsFiltres input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    color: #fff;
+}
+
+.header__boutonsFiltres i:hover {
     cursor: pointer;
 }
 
@@ -106,6 +145,8 @@ body {
     color: #fff;
     padding: 22px 19px;
     margin-right: 20px;
+    position: relative;
+    margin-bottom: -320px;
 }
 
 .header__boutonsFiltres__dropDown__input__icon {
@@ -129,20 +170,27 @@ body {
     outline: 0;
 }
 
-.header__boutonsFiltres__dropDown__input__icon input::placeholder { 
+.header__boutonsFiltres__dropDown__input__icon input::placeholder {
     color: #fff;
     opacity: 0.5;
 }
 
 .header__boutonsFiltres__dropDown__liste {
     display: grid;
-    grid-template-columns: 1fr 1fr 0fr;
+    grid-template-columns: 1fr 1fr 1fr;
     font-size: 18px;
     font-weight: 400;
+    height: 360px;
+    overflow-y: scroll;
 }
 
 .header__boutonsFiltres__dropDown__liste p {
     margin: 7px 0px;
+    text-transform: capitalize;
+}
+
+.header__boutonsFiltres__dropDown__liste p:hover {
+    cursor: pointer;
 }
 
 .header__boutonsFiltres__appareils {
@@ -158,6 +206,8 @@ body {
     color: #fff;
     padding: 22px 19px;
     margin-right: 20px;
+    position: relative;
+    margin-bottom: -320px;
 }
 
 #inputAppareils {
@@ -177,6 +227,8 @@ body {
     color: #fff;
     padding: 22px 19px;
     margin-right: 20px;
+    position: relative;
+    margin-bottom: -320px;
 }
 
 #inputUstensiles {
@@ -255,7 +307,8 @@ body {
     margin: 0;
     line-height: 100%;
     display: -webkit-box;
-    -webkit-line-clamp: 9; /** numéro de ligne à montrer */
+    -webkit-line-clamp: 9;
+    /** numéro de ligne à montrer */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

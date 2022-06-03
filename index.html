@@ -36,129 +36,45 @@
 
         <div class="header__MotRecherche">
             <button class="header__MotRecherche__bouton">Coco
-                <i class="fa-regular fa-circle-xmark"></i>
+                <i class="fa-regular fa-circle-xmark" onclick="closeTag()" style="cursor: pointer;"></i>
             </button>
         </div>
 
         <div class="header__boutonsFiltres">
-            <button class="header__boutonsFiltres__ingredients" onclick="openDropDownIngredients()">Ingredients
-                <i class="fa-solid fa-chevron-down"></i></button>
+            <button class="header__boutonsFiltres__ingredients">
+                <input type="text" placeholder="Ingredients">
+                <i class="fa-solid fa-chevron-down" onclick="openDropDownIngredients()"></i></button>
                 <div id="recipeIngredient" class="header__boutonsFiltres__ingredients__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
                         <input type="text" placeholder="Rechercher un ingrédient">
-                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-up" onclick="closeDropDownIngredients()"></i>
                     </div>
-                    <div class="header__boutonsFiltres__dropDown__liste">
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
+                    <div class="header__boutonsFiltres__dropDown__liste" id="ingredients">
+                       
                     </div>
                 </div>
-            <button class="header__boutonsFiltres__appareils" onclick="openDropDownAppareils()">Appareils
-                <i class="fa-solid fa-chevron-down"></i></button>
+            <button class="header__boutonsFiltres__appareils">
+                <input type="text" placeholder="Appareils">
+                <i class="fa-solid fa-chevron-down" onclick="openDropDownAppareils()"></i></button>
                 <div id="recipeAppareils" class="header__boutonsFiltres__appareils__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
                         <input id="inputAppareils" type="text" placeholder="Rechercher un appareil">
-                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-up" onclick="closeDropDownAppareils()"></i>
                     </div>
-                    <div class="header__boutonsFiltres__dropDown__liste">
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
+                    <div id="appareils" class="header__boutonsFiltres__dropDown__liste">
+                        
                     </div>
                 </div>
-            <button class="header__boutonsFiltres__ustensiles" onclick="openDropDownUstensiles()">Ustensiles
-                <i class="fa-solid fa-chevron-down"></i></button>
+            <button class="header__boutonsFiltres__ustensiles">
+                <input type="text" placeholder="Ustensiles">
+                <i class="fa-solid fa-chevron-down" onclick="openDropDownUstensiles()"></i></button>
                 <div id="recipeUstensiles" class="header__boutonsFiltres__ustensiles__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
                         <input id="inputUstensiles" type="text" placeholder="Rechercher un ustensile">
-                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-up" onclick="closeDropDownUstensiles()"></i>
                     </div>
-                    <div class="header__boutonsFiltres__dropDown__liste">
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
-                        <p>Blablablabla</p>
+                    <div class="header__boutonsFiltres__dropDown__liste" id="ustensils">
+                    
                     </div>
                 </div>
         </div>

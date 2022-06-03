@@ -8,7 +8,6 @@ async function getRecipes() {
     await fetch("data/recipes.json")
       .then(response => response.json())
       .then((data) => (recipes = data.recipes));
-      console.log(recipes)
   
     return {
       recipes
@@ -17,13 +16,19 @@ async function getRecipes() {
 }
 
 async function displayData(recipes) {
-  let recipesHTML;
+  let recipesHTML = '';
   recipes.map(recipe => {
 
+   
     // On rempli un tableau d'ingredients
+     // APPAREILS
     appareils.push(recipe.appliance);
-    ustensils.push(recipe.ustensils);
-    ingredients.push(recipe.ingredient);
+    // USTENSILES
+    ustensils.push(...recipe.ustensils);
+
+    recipe.ingredients.map(ingredient => {
+      ingredients.push(ingredient.ingredient);
+    })
 
     recipesHTML = recipesHTML + `
     <div class="main__diaporama__miniature">
@@ -50,59 +55,41 @@ async function displayData(recipes) {
 </div>
         `;
   })
+
+  // On enlève les valeurs doublons
+  const appareilsClean = new Set(appareils);
+  const appareilsWithoutDoublon = [...appareilsClean]
+
+  // On enlève les valeurs doublons
+  const ustensilsClean = new Set(ustensils);
+  const ustensilsWithoutDoublon = [...ustensilsClean]
+
+  // On enlève les valeurs doublons
+  const ingredientsClean = new Set(ingredients);
+  const ingredientsWithoutDoublon = [...ingredientsClean]
+
+  remplirMesDropdown(appareilsWithoutDoublon, 'appareils')
+  remplirMesDropdown(ustensilsWithoutDoublon, 'ustensils')
+  remplirMesDropdown(ingredientsWithoutDoublon, 'ingredients')
+
   document.querySelector(".main__diaporama").innerHTML = recipesHTML;
 }
 
+async function remplirMesDropdown(data, idDiv) {
+  data.map(value => {
+    const listElement = document.createElement('p');
+    // Corrigir os maiusculos
+    listElement.innerHTML = value;
+    document.getElementById(idDiv).append(listElement);
+  }
 
-// function remplirLesDropdown() {
-//   ustensils.map(ustensils => {
-//   let ustensilsHTML;
-  
-//   ustensilsHTML = ustensilsHTML + `
-//   <div id="recipeUstensiles" class="header__boutonsFiltres__ustensiles__dropDown" style="display: none;">
-//   <div class="header__boutonsFiltres__dropDown__input__icon">
-//       <input id="inputUstensiles" type="text" placeholder="Rechercher un ustensile">
-//       <i class="fa-solid fa-chevron-down"></i>
-//   </div>
-//   <div class="header__boutonsFiltres__dropDown__liste">
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//       <p>${ustensils}</p>
-//   </div>
-// </div>
-//   `
+    )
+}
 
-//     document.querySelector(".header__boutonsFiltres__ustensiles__dropDown").innerHTML = ustensilsHTML;
-//     })
-//   }
-
+// Fermer les tags
+async function closeTag() {
+  document.querySelector(".header__MotRecherche__bouton").style.display = "none";
+}
 
 // Ouvrir les menus 
 async function openDropDownIngredients() {
@@ -120,6 +107,22 @@ async function openDropDownUstensiles() {
   document.querySelector(".header__boutonsFiltres__ustensiles__dropDown").style.display = "block";
 }
 
+// Fermer les menus
+async function closeDropDownIngredients() {
+  document.querySelector(".header__boutonsFiltres__ingredients").style.display = "flex";
+  document.querySelector(".header__boutonsFiltres__ingredients__dropDown").style.display = "none";
+}
+
+async function closeDropDownAppareils() {
+  document.querySelector(".header__boutonsFiltres__appareils").style.display = "flex";
+  document.querySelector(".header__boutonsFiltres__appareils__dropDown").style.display = "none";
+}
+
+async function closeDropDownUstensiles() {
+  document.querySelector(".header__boutonsFiltres__ustensiles").style.display = "flex";
+  document.querySelector(".header__boutonsFiltres__ustensiles__dropDown").style.display = "none";
+}
+
 async function init() {
     const {
       recipes
@@ -127,36 +130,6 @@ async function init() {
     displayData(recipes);
   }
 
-// var recipes = [];
-// var ingredients = [];
-// var ustensils = [];
-// var appareils = [];
 
-
-// async function init() {
-//   fetch("data/recipes.json")
-//   recipes.push(recipes);
-//   recipes.map(recipe => {
-//     ingredients.push(recipe.ingredient);
-//     ustensils.push(recipe.ustensils);
-//     appareils.push(recipe.appareil);
-//   })
-
-//   remplirMesRecettes();
-//   remplirLesDropdown();
-// }
-
-// function remplirMesRecettes() {
-
-//   recipes.map(recipe => {
-//     document.getElementById("nameRecipe").innerText = `${recipe.name}`;
-//   })
-// }
-
-// function remplirLesDropdown() {
-//   ustensils.map(ustensils => {
-//     monDropdownUstensil.innerHtml = ustensils.title;
-//   })
-// }
 
 init();
