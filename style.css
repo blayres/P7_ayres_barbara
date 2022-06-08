@@ -110,7 +110,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header__boutonsFiltres input {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     border: none;
     background-color: transparent;
@@ -134,6 +134,27 @@ body::-webkit-scrollbar-thumb {
 
 .header__boutonsFiltres__ingredients {
     background-color: #3282F7;
+}
+
+.suggestions {
+    width: 132px;
+    list-style-type: none;
+    margin-top: -44px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3282F7;
+    color: #fff;
+    padding: 22px 19px;
+}
+
+.suggestions li {
+    margin: 7px -3px;
+    font-size: 18px;
+    text-transform: lowercase;
+}
+
+.suggestions li:hover {
+    cursor: pointer;
 }
 
 .header__boutonsFiltres__ingredients__dropDown {
@@ -281,6 +302,7 @@ body::-webkit-scrollbar-thumb {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-transform: capitalize;
 }
 
 .main__diaporama__miniature__textes__temps {

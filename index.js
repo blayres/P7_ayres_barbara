@@ -2,26 +2,26 @@ var ingredients = [];
 var ustensils = [];
 var appareils = [];
 
-//Mettre le code JavaScript lié à la page index.html
+// Mettre le code JavaScript lié à la page index.html
 async function getRecipes() {
-    let recipes = [];
-    await fetch("data/recipes.json")
-      .then(response => response.json())
-      .then((data) => (recipes = data.recipes));
-  
-    return {
-      recipes
-    };
-    
+  let recipes = [];
+  await fetch("data/recipes.json")
+    .then(response => response.json())
+    .then((data) => (recipes = data.recipes));
+
+  return {
+    recipes
+  };
+
 }
 
 async function displayData(recipes) {
   let recipesHTML = '';
   recipes.map(recipe => {
 
-   
+
     // On rempli un tableau d'ingredients
-     // APPAREILS
+    // APPAREILS
     appareils.push(recipe.appliance);
     // USTENSILES
     ustensils.push(...recipe.ustensils);
@@ -77,13 +77,17 @@ async function displayData(recipes) {
 
 async function remplirMesDropdown(data, idDiv) {
   data.map(value => {
-    const listElement = document.createElement('p');
-    // Corrigir os maiusculos
-    listElement.innerHTML = value;
-    document.getElementById(idDiv).append(listElement);
-  }
+      const listElement = document.createElement('p');
+      listElement.innerHTML = value;
+      document.getElementById(idDiv).append(listElement);
+    }
 
-    )
+  )
+}
+
+// Ouvrir les tags
+async function openTag() {
+  document.querySelector(".header__MotRecherche__bouton").style.display = "flex";
 }
 
 // Fermer les tags
@@ -123,12 +127,75 @@ async function closeDropDownUstensiles() {
   document.querySelector(".header__boutonsFiltres__ustensiles__dropDown").style.display = "none";
 }
 
-async function init() {
-    const {
-      recipes
-    } = await getRecipes();
-    displayData(recipes);
+
+// Faire apparaitre les suggestions des ingredients
+function autoComplete(ingredient) {
+  let = ingredients;
+
+  return ingredients.filter((value) => {
+    const valueMiniscule = value.toLowerCase()
+    const ingredientsMiniscule = ingredient.toLowerCase()
+
+    return valueMiniscule.includes(ingredientsMiniscule)
+  })
+}
+
+const fieldIngredients = document.querySelector('.fieldIng')
+const suggestionsIngredients = document.querySelector('.suggestions')
+
+fieldIngredients.addEventListener('input', ({
+  target
+}) => {
+  const dataField = target.value
+  if (dataField.length) {
+    const autoCompleteValues = autoComplete(dataField)
+    suggestionsIngredients.innerHTML = `
+               ${autoCompleteValues.map((value) => {
+                   return (
+                      `<li onclick="openTag()">${value}</li>`
+                           )
+                }).join('')}
+              `
   }
+})
+
+// // Faire apparaitre les suggestions des appareils
+// function autoComplete(appareil) {
+//   let = appareils;
+
+//   return appareils.filter((value) => {
+//     const valueMiniscule = value.toLowerCase()
+//     const appareilsMiniscule = appareil.toLowerCase()
+
+//     return valueMiniscule.includes(appareilsMiniscule)
+//   })
+// }
+
+// const fieldAppareils = document.querySelector('.fieldApp')
+// const suggestionsAppareils = document.querySelector('.suggestions')
+
+// fieldAppareils.addEventListener('input', ({
+//   target
+// }) => {
+//   const dataField = target.value
+//   if (dataField.length) {
+//     const autoCompleteValues = autoComplete(dataField)
+//     suggestionsAppareils.innerHTML = `
+//                ${autoCompleteValues.map((value) => {
+//                    return (
+//                       `<li onclick="openTag()">${value}</li>`
+//                            )
+//                 }).join('')}
+//               `
+//   }
+// })
+
+async function init() {
+  const {
+    recipes
+  } = await getRecipes();
+  displayData(recipes);
+}
 
 
 

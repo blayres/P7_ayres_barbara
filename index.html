@@ -35,15 +35,16 @@
         </div>
 
         <div class="header__MotRecherche">
-            <button class="header__MotRecherche__bouton">Coco
+            <button class="header__MotRecherche__bouton" style="display: none;">Coco
                 <i class="fa-regular fa-circle-xmark" onclick="closeTag()" style="cursor: pointer;"></i>
             </button>
-        </div>
+        </div>  
 
         <div class="header__boutonsFiltres">
             <button class="header__boutonsFiltres__ingredients">
-                <input type="text" placeholder="Ingredients">
-                <i class="fa-solid fa-chevron-down" onclick="openDropDownIngredients()"></i></button>
+                <input class="fieldIng" type="text" placeholder="Ingredients">
+                <i class="fa-solid fa-chevron-down" onclick="openDropDownIngredients()"></i>
+                </button>
                 <div id="recipeIngredient" class="header__boutonsFiltres__ingredients__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
                         <input type="text" placeholder="Rechercher un ingrédient">
@@ -54,7 +55,7 @@
                     </div>
                 </div>
             <button class="header__boutonsFiltres__appareils">
-                <input type="text" placeholder="Appareils">
+                <input class="fieldApp" type="text" placeholder="Appareils">
                 <i class="fa-solid fa-chevron-down" onclick="openDropDownAppareils()"></i></button>
                 <div id="recipeAppareils" class="header__boutonsFiltres__appareils__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
@@ -66,7 +67,7 @@
                     </div>
                 </div>
             <button class="header__boutonsFiltres__ustensiles">
-                <input type="text" placeholder="Ustensiles">
+                <input class="fieldUst" type="text" placeholder="Ustensiles">
                 <i class="fa-solid fa-chevron-down" onclick="openDropDownUstensiles()"></i></button>
                 <div id="recipeUstensiles" class="header__boutonsFiltres__ustensiles__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
@@ -78,6 +79,7 @@
                     </div>
                 </div>
         </div>
+        <ul class="suggestions"></ul>
     </header>
 
     <main class="container">
