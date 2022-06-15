@@ -22,9 +22,8 @@ async function getRecipes() {
 async function displayData(recipes) {
   let recipesHTML = '';
   ingredients = [];
-  var i = 0; 
-  if (i < ingredients.length) {
-    i++
+  for(i = 0; i < ingredients.length; i++) {
+    return ingredients[i]
   }
   recipes.map(recipe => {
 
