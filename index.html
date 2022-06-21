@@ -28,17 +28,13 @@
         </div>
 
         <div class="header__barreDeRecherche">
-            <input type="text" placeholder="Rechercher une recette">
-            <button class="header__barreDeRecherche__loupe" type="submit">
-                <i class="fa-solid fa-magnifying-glass" onclick="addTag('${value}')"></i>
+            <input id="search" onkeypress="search()" type="text" placeholder="Rechercher une recette">
+            <button class="header__barreDeRecherche__loupe" type="submit" onclick="search()">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
 
-        <div class="header__MotRecherche">
-            <button class="header__MotRecherche__bouton" style="display: none;">
-                <i class="fa-regular fa-circle-xmark" onclick="closeTag()" style="cursor: pointer;"></i>
-            </button>
-        </div>  
+        <div class="header__MotRecherche"></div>  
 
         <div class="header__boutonsFiltres">
             <button class="header__boutonsFiltres__ingredients">

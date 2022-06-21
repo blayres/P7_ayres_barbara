@@ -356,7 +356,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main__diaporama__miniature__textes__corps__droite {
-    width: 171px;
+    width: 140px;
     height: 109px;
     margin: 0;
     line-height: 100%;
@@ -371,18 +371,42 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width:1025px)
 {
     .header__barreDeRecherche {
-        width: 595px;
+        width: 640px;
     }
     .header__barreDeRecherche__loupe{
         margin-left: 750px;
     }
+    .header__boutonsFiltres {
+        justify-content: space-between;
+    }
     .header__boutonsFiltres button {
-        margin-right: 44px;
+        margin-right: 0;
     }
     .suggestions {
         margin-right: 44px;
     }
-    .main__diaporama__miniature {
-        width: 595px;
+    .suggestions-appareils {
+        margin-left: 235px;
     }
+    .suggestions-ustensils {
+        margin-left: 470px;
+    }
+    .main__diaporama__miniature {
+        width: 640px;
+    }
+}
+
+@media screen and (max-width:600px) {
+.container {
+    padding: 0 20px;
+}
+.header__barreDeRecherche {
+    width: 334px;
+}
+.header__barreDeRecherche__loupe {
+    margin-left: 295px;
+}
+.main__diaporama__miniature {
+    width: 334px;
+}
 }

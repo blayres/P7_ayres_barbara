@@ -1,6 +1,7 @@
 var ingredients = [];
 var ustensils = [];
 var appareils = [];
+var allRecipes = [];
 
 var appareilsWithoutDoublon = [];
 var ustensilsWithoutDoublon = [];
@@ -12,7 +13,7 @@ async function getRecipes() {
   await fetch("data/recipes.json")
     .then(response => response.json())
     .then((data) => (recipes = data.recipes));
-
+  allRecipes = recipes
   return {
     recipes
   };
@@ -22,23 +23,33 @@ async function getRecipes() {
 async function displayData(recipes) {
   let recipesHTML = '';
   ingredients = [];
-  for(i = 0; i < ingredients.length; i++) {
-    return ingredients[i]
-  }
   recipes.map(recipe => {
-
+    let ingredientsHTML = '';
 
     // On rempli un tableau d'ingredients
     // APPAREILS
     appareils.push(recipe.appliance.toLowerCase());
     // USTENSILES
- 
+
     recipe.ustensils.map(ustensil => {
       ustensils.push(ustensil.toLowerCase());
     })
 
     recipe.ingredients.map(ingredient => {
       ingredients.push(ingredient.ingredient.toLowerCase());
+      let quantity = ingredient.quantity;
+      let unit = ingredient.unit;
+      let doublePoint = '';
+      if (quantity != undefined) {
+        doublePoint = ':';
+      }
+      if (quantity == undefined) {
+        quantity = '';
+      }
+      if (unit == undefined) {
+        unit = '';
+      }
+      ingredientsHTML = ingredientsHTML + `<li><strong>${ingredient.ingredient}${doublePoint}</strong> ${quantity} ${unit} </li>`;
     })
 
     recipesHTML = recipesHTML + `
@@ -52,7 +63,7 @@ async function displayData(recipes) {
         </div>
         <div class="main__diaporama__miniature__textes__corps">
             <ul class="main__diaporama__miniature__textes__corps__gauche">
-                <li><strong>${recipe.ingredients[i].ingredient}:</strong> ${recipe.ingredients[i].quantity}${recipe.ingredients[i].unit} </li>
+                ${ingredientsHTML}
             </ul>
             <p id="descriptionRecipe" class="main__diaporama__miniature__textes__corps__droite">
                 ${recipe.description}
@@ -84,48 +95,33 @@ async function displayData(recipes) {
 
 async function remplirMesDropdown(data, idDiv) {
   data.map(value => {
-    const listElement = document.createElement('p');
-    listElement.onclick = function () {
-      addTag(value);
-    };
- 
-    listElement.innerHTML = value;
-    document.getElementById(idDiv).append(listElement);
-  }
+      const listElement = document.createElement('p');
+      listElement.onclick = function () {
+        addTag(value, idDiv);
+      };
+
+      listElement.innerHTML = value;
+      document.getElementById(idDiv).append(listElement);
+    }
 
   )
 }
 
 // Ouvrir les tags
-async function addTag(value) {
+async function addTag(value, type) {
+  console.log(type)
   var header__MotRecherche = document.querySelector('.header__MotRecherche').innerHTML;
-
-  document.querySelector('.header__MotRecherche').innerHTML = header__MotRecherche + `<button class="header__MotRecherche__bouton">${value}
+  var tagsAdded = document.querySelectorAll('.header__MotRecherche__bouton');
+  var tagsAddedArray = [];
+  tagsAdded.forEach(tag => {
+    tagsAddedArray.push(tag.innerText);
+  })
+  if (!tagsAddedArray.includes(value)) {
+    document.querySelector('.header__MotRecherche').innerHTML = header__MotRecherche + `<button data-type="${type}" class="header__MotRecherche__bouton">${value}
   <i class="fa-regular fa-circle-xmark" onclick="removeTag(this)" style="cursor: pointer;"></i>
 </button>`;
-
-// var tags = [];
-//    $('header__MotRecherche__bouton').each(function(){
-//        var tagArray = $(this).text().split(' ');
-     
-//        for(var i = tagArray.length - 1; i >= 0; i--) {
-//           var tag = tagArray[i];
-//           if(tags.indexOf(tag) > -1) {
-//              tagArray.splice(i, 1);
-//           } else {
-//             tags.push(tag);
-//           }
-//        }
-     
-//        var currentTag = tagArray.join(' ');
-     
-//         if(currentTag){
-//             $(this).text(currentTag);
-//         }
-//         else{
-//             $(this).remove();
-//         }
-//     });
+  }
+  algo1();
 }
 
 // Fermer les tags
@@ -164,24 +160,6 @@ async function closeDropDownUstensiles() {
   document.querySelector(".header__boutonsFiltres__ustensiles").style.display = "flex";
   document.querySelector(".header__boutonsFiltres__ustensiles__dropDown").style.display = "none";
 }
-
-// // Filtrer les appareils
-// appareils = [];
-
-// function filterItems(search) {
-//   return appareils.filter(function(el) {
-//       return el.toLowerCase().indexOf(search.toLowerCase()) > -1;
-//   })
-// }
-
-// console.log(filterItems('bl'));
-// console.log(filterItems('fo')); 
-
-// var appareilsFiltered = document.querySelector('.inputAppareilsFiltered');
-// appareilsFiltered.addEventListener('blur', function(){
-//   eval(this.value);
-// })
-
 
 // Faire apparaitre les suggestions 
 function autoComplete(search, type) {
@@ -241,7 +219,7 @@ fieldAutocomplete.forEach(el => {
       divToWrite.innerHTML = `
                  ${autoCompleteValues.map((value) => {
         return (
-          `<li style="display: block;" onclick="addTag('${value}')">${value}</li>`
+          `<li style="display: block;" onclick="addTag('${value}','${type}')">${value}</li>`
         )
       }).join('')}
                 `
@@ -250,6 +228,49 @@ fieldAutocomplete.forEach(el => {
     }
   })
 })
+
+async function search() {
+  const search = document.getElementById("search").value;
+  if (search.length >= 3) {
+    algo1();
+  }
+}
+
+async function algo1() {
+  var tagsAdded = document.querySelectorAll('.header__MotRecherche__bouton');
+  var tagsIngredients = [];
+  var tagsAppareils = [];
+  var tagsUstensils = [];
+  tagsAdded.forEach(tag => {
+    let type = tag.dataset.type;
+    if (type == 'ingredients') {
+      tagsIngredients.push(tag.innerText);
+    }
+    if (type == 'appareils') {
+      tagsAppareils.push(tag.innerText);
+    }
+    if (type == 'ustensils') {
+      tagsUstensils.push(tag.innerText);
+    }
+  })
+  const search = document.getElementById("search").value;
+  console.log(search, tagsIngredients, allRecipes)
+
+  let recipesFiltered = [];
+  allRecipes.map(recipe => {
+    let recipesHaveAppareils = true;
+    tagsAppareils.map(appareil => {
+      if (recipe.appliance.toLowerCase() != appareil.toLowerCase()) {
+        recipesHaveAppareils = false;
+      }
+    })
+    if (recipesHaveAppareils) {
+      recipesFiltered.push(recipe);
+    }
+  })
+  displayData(recipesFiltered);
+}
+
 
 
 async function init() {
