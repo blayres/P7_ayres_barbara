@@ -353,6 +353,7 @@ body::-webkit-scrollbar-thumb {
     margin: 0;
     list-style-type: none;
     padding-left: 0%;
+    width: 50%;
 }
 
 .main__diaporama__miniature__textes__corps__droite {
@@ -374,7 +375,7 @@ body::-webkit-scrollbar-thumb {
         width: 640px;
     }
     .header__barreDeRecherche__loupe{
-        margin-left: 750px;
+        margin-left: 550px;
     }
     .header__boutonsFiltres {
         justify-content: space-between;
@@ -406,7 +407,29 @@ body::-webkit-scrollbar-thumb {
 .header__barreDeRecherche__loupe {
     margin-left: 295px;
 }
+.header__boutonsFiltres {
+    max-width: 334px;
+}
+.header__boutonsFiltres input {
+    font-size: 14px;
+}
+.header__boutonsFiltres button {
+    width: 106px; 
+    justify-content: space-between;
+   }
+.suggestions {
+    margin-right: 0px;
+    width: auto;
+   }
+.suggestions-ustensils {
+   margin-left: 228px;
+   }
+.suggestions-appareils {
+   margin-left: 181px;
+   }
 .main__diaporama__miniature {
     width: 334px;
 }
 }
+
+/* 

@@ -267,7 +267,26 @@ async function algo1() {
     if (recipesHaveAppareils) {
       recipesFiltered.push(recipe);
     }
+
+    // let recipesHaveIngredients = true;
+    //   tagsIngredients.map(ingredient => {
+    //     if (ingredient.ingredient.toLowerCase() != ingredient.toLowerCase()) {
+    //       recipesHaveIngredients = false;
+    //     }
+    //   })
+    //   if (recipesHaveIngredients) {
+    //     recipesFiltered.push(recipe);
+    //   }
+
+    //   
+    //   searchPrincipal.addEventListener('input', (e) => {
+    //     if (e.target.value.length >= 3 || e.inputType === "deleteContentBackward") {
+    //         search(tagsAdded.active, recipe.instances);
+    //     }
+    // })
+
   })
+
   displayData(recipesFiltered);
 }
 
