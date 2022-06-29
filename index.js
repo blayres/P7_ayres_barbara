@@ -265,73 +265,43 @@ async function algo() {
 
   let recipesFiltered = [];
 
-  for(let z = 0; z < allRecipes.length; z++) { 
-
+  allRecipes.map(recipe => {
     let recipesHaveAppareils = true;
+    tagsAppareils.map(appareil => {
+      if (recipe.appliance.toLowerCase() != appareil.toLowerCase()) {
+        recipesHaveAppareils = false;
+      }
+    })
+
     let recipesHaveIngredients = true;
+    tagsIngredients.map(tagIndredient => {
+      if (!recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() == tagIndredient.toLowerCase())) {
+        recipesHaveIngredients = false;
+      }
+    })
+
     let recipesHaveUstensils = true;
-
-    for(let x = 0; x < tagsAppareils.length; x++){
-        if (allRecipes[z].appliance.toLowerCase() != tagsAppareils[x].toLowerCase()) {
-            recipesHaveAppareils = false;
-          }
-    }
-
-
-    let countIngredients = 0;
-    let countIngredientsInRecipe = 0;
-    let countUstensils = 0;
-    let countUstensilsInRecipe = 0;
-   
-
-    
-    for(let a = 0; a < tagsIngredients.length; a++){
-      countIngredients++;
-      for(let y = 0; y < allRecipes[z].ingredients.length; y++) {
-          if(allRecipes[z].ingredients[y].ingredient.toLowerCase() == tagsIngredients[a].toLowerCase()) {
-              countIngredientsInRecipe++;
-          }
+    // Couteau
+    tagsUstensils.map(tagUstensil => {
+      if (!tagUstensil.includes(recipe.ustensils)) {
+        recipesHaveUstensils = false;
       }
-    }
-
-
-    for(let b = 0; b < tagsUstensils.length; b++){
-        countUstensils++;
-        for(let c = 0; c < allRecipes[z].ustensils.length; c++) {
-            if(allRecipes[z].ustensils[c].toLowerCase() == tagsUstensils[b].toLowerCase()) {
-                countUstensilsInRecipe++;
-            }
-        }
-      }
-
-
+    })
 
     let recipesHasKeyword = true;
-    if(search.length > 3) { 
-      if(!allRecipes[z].name.toLowerCase().includes(search.toLowerCase()) &&
-      !allRecipes[z].description.toLowerCase().includes(search.toLowerCase()) &&
-      !allRecipes[z].ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(search.toLowerCase()))) {
+    console.log(search);
+    if(search.length > 3) {
+      if(!recipe.name.toLowerCase().includes(search.toLowerCase()) &&
+      !recipe.description.toLowerCase().includes(search.toLowerCase()) &&
+      !recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(search.toLowerCase()))) {
         recipesHasKeyword = false;
       }
     }
 
-    
-    if(countIngredients != countIngredientsInRecipe) {
-      recipesHaveIngredients = false;
-    }
-   
-    if(countUstensils != countUstensilsInRecipe) {
-        recipesHaveUstensils = false;
-    } 
-
     if (recipesHaveAppareils && recipesHaveIngredients && recipesHaveUstensils && recipesHasKeyword) {
-        recipesFiltered.push(allRecipes[z]);
-      }
-
-
-  }
-
-
+      recipesFiltered.push(recipe);
+    }
+  })
   displayData(recipesFiltered);
 }
 
