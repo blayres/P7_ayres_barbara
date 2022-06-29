@@ -157,7 +157,7 @@ body::-webkit-scrollbar-thumb {
     padding: 11px 19px;
     margin-top: -23px;
     position: absolute;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .suggestions li {
@@ -227,8 +227,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header__boutonsFiltres__dropDown__liste {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px 75px;
     font-size: 18px;
     font-weight: 400;
     height: 360px;
@@ -293,8 +295,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-wrap: wrap;
     width: calc(100% - 0px);
-    justify-content: space-between;
-    gap: 35px 0px;
+    gap: 35px 55px;
 }
 
 .main__diaporama__miniature {
@@ -417,15 +418,21 @@ body::-webkit-scrollbar-thumb {
     width: 106px; 
     justify-content: space-between;
    }
+.header__boutonsFiltres__appareils__dropDown {
+    margin-left: -96px;
+}
+.header__boutonsFiltres__ustensiles__dropDown {
+    margin-left: -190px;
+}
 .suggestions {
     margin-right: 0px;
-    width: auto;
+    width: 68px;
    }
 .suggestions-ustensils {
    margin-left: 228px;
    }
 .suggestions-appareils {
-   margin-left: 181px;
+   margin-left: 114px;
    }
 .main__diaporama__miniature {
     width: 334px;
