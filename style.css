@@ -101,7 +101,7 @@ body::-webkit-scrollbar-thumb {
     margin-top: 20px;
 }
 
-.header__boutonsFiltres button {
+.header__boutonsFiltres__button {
     width: 170px;
     height: 69px;
     border: none;

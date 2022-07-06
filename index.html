@@ -37,10 +37,10 @@
         <div class="header__MotRecherche"></div>  
 
         <div class="header__boutonsFiltres">
-            <button class="header__boutonsFiltres__ingredients">
+            <div class="header__boutonsFiltres__button header__boutonsFiltres__ingredients">
                 <input class="fieldAutocomplete" data-id="ingredients" type="text" placeholder="Ingredients">
                 <i class="fa-solid fa-chevron-down" onclick="openDropDownIngredients()"></i>
-                </button>
+            </div>
                 <div id="recipeIngredient" class="header__boutonsFiltres__ingredients__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
                         <input type="text" placeholder="Rechercher un ingrédient">
@@ -50,9 +50,9 @@
                        
                     </div>
                 </div>
-            <button class="header__boutonsFiltres__appareils">
+            <div class="header__boutonsFiltres__button header__boutonsFiltres__appareils">
                 <input class="fieldAutocomplete" data-id="appareils" type="text" placeholder="Appareils">
-                <i class="fa-solid fa-chevron-down" onclick="openDropDownAppareils()"></i></button>
+                <i class="fa-solid fa-chevron-down" onclick="openDropDownAppareils()"></i></div>
                 <div id="recipeAppareils" class="header__boutonsFiltres__appareils__dropDown" style="display: none;" >
                     <div class="header__boutonsFiltres__dropDown__input__icon">
                         <input class="inputAppareilsFiltered" id="inputAppareils" type="text" placeholder="Rechercher un appareil">
@@ -62,9 +62,9 @@
                         
                     </div>
                 </div>
-            <button class="header__boutonsFiltres__ustensiles">
+            <div class="header__boutonsFiltres__button header__boutonsFiltres__ustensiles">
                 <input class="fieldAutocomplete" data-id="ustensils" type="text" placeholder="Ustensiles">
-                <i class="fa-solid fa-chevron-down" onclick="openDropDownUstensiles()"></i></button>
+                <i class="fa-solid fa-chevron-down" onclick="openDropDownUstensiles()"></i></div>
                 <div id="recipeUstensiles" class="header__boutonsFiltres__ustensiles__dropDown" style="display: none;">
                     <div class="header__boutonsFiltres__dropDown__input__icon">
                         <input id="inputUstensiles" type="text" placeholder="Rechercher un ustensile">
@@ -83,7 +83,7 @@
     </header>
 
     <main class="container">
-        <section class="main__diaporama"></section>
+        <div class="main__diaporama"></div>
     </main>
 <script src="index.js"></script>
 </body>
