@@ -204,34 +204,74 @@ fieldAutocomplete.forEach(el => {
   }) => {
     const dataField = target.value
     const type = target.dataset.id;
+    const isSuggestions = target.dataset.suggestions;
     var divToWrite = null;
 
-    if (type == 'ingredients') {
-      divToWrite = suggestionsIngredients
-    }
-
-    if (type == 'ustensils') {
-      divToWrite = suggestionsUstensils
-    }
-
-    if (type == 'appareils') {
-      divToWrite = suggestionsAppareils
-    }
-    console.log(dataField);
-    if (dataField.length > 0) {
-      const autoCompleteValues = autoComplete(dataField, type);
-
-
-      divToWrite.innerHTML = `
-                 ${autoCompleteValues.map((value) => {
-        return (
-          `<li style="display: block;" onclick="addTag('${value}','${type}')">${value}</li>`
-        )
-      }).join('')}
-                `
+    if(!isSuggestions) {
+      if (type == 'ingredients') {
+        divToWrite = suggestionsIngredients
+      }
+  
+      if (type == 'ustensils') {
+        divToWrite = suggestionsUstensils
+      }
+  
+      if (type == 'appareils') {
+        divToWrite = suggestionsAppareils
+      }
+      console.log(dataField);
+      if (dataField.length > 0) {
+        const autoCompleteValues = autoComplete(dataField, type);
+  
+  
+        divToWrite.innerHTML = `
+                   ${autoCompleteValues.map((value) => {
+          return (
+            `<li style="display: block;" onclick="addTag('${value}','${type}')">${value}</li>`
+          )
+        }).join('')}
+                  `
+      } else {
+        divToWrite.innerHTML = '';
+      }
     } else {
-      divToWrite.innerHTML = '';
+
+  let idDiv = null;
+
+      if (type == 'ingredients') {
+        idDiv = 'ingredients'
+        divToWrite = document.getElementById("ingredients")
+      }
+  
+      if (type == 'ustensils') {
+        idDiv = 'ustensils'
+        divToWrite = document.getElementById("ustensils")
+      }
+  
+      if (type == 'appareils') {
+        idDiv = 'appareils'
+        divToWrite = document.getElementById("appareils")
+      }
+      
+      if (dataField.length > 0) {
+        divToWrite.innerHTML = '';
+        const autoCompleteValues = autoComplete(dataField, type);
+        autoCompleteValues.map(value => {
+          const listElement = document.createElement('p');
+          listElement.onclick = function () {
+            addTag(value, idDiv);
+          };
+          listElement.innerHTML = value;
+          document.getElementById(idDiv).append(listElement);
+        })
+      } else {
+        remplirMesDropdown(appareilsWithoutDoublon, 'appareils')
+        remplirMesDropdown(ustensilsWithoutDoublon, 'ustensils')
+        remplirMesDropdown(ingredientsWithoutDoublon, 'ingredients')
+      }
     }
+
+    
   })
 })
 
@@ -331,7 +371,11 @@ async function algo() {
 
   }
 
-
+if(recipesFiltered.length == 0){
+  document.querySelector('.erreur').style.display='block';
+} else {
+  document.querySelector('.erreur').style.display='none';
+} 
   displayData(recipesFiltered);
 }
 

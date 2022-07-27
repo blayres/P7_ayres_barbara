@@ -290,6 +290,21 @@ body::-webkit-scrollbar-thumb {
     background-color: #ED6454;
 }
 
+[data-type="appareils"] {
+    background-color: #68D9A4;
+}
+
+[data-type="ustensils"] {
+    background-color: #ED6454;
+}
+
+.erreur {
+    color: #ED6454;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
 /* MAIN */
 .main__diaporama {
     display: flex;
