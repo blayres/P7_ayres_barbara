@@ -26,7 +26,9 @@ les appareils.
 
 
 On a fait 2 versions du code pour tester la performance du site :
+
 • Une version utilisant les boucles natives (while, for...) 
+
 • Et une version en programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce). 
 
 ================ EN ====================
