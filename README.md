@@ -6,16 +6,16 @@ Après avoir édité des livres de cuisine pendant plusieurs années, l’entrep
 
 Nous disposons uniquement d’un fichier JavaScript contenant un tableau JSON de 50 recettes. 
 
-**Cas d’utilisation :**
+## Cas d’utilisation :
 
 Filtrer les recettes dans l’interface utilisateur.
 
-**Objectif :**
+## Objectif :
 
 Accéder rapidement à une recette correspondant à un besoin
 de l’utilisateur dans les recettes déjà reçues.
 
-**Description :**
+## Description :
 
 L’utilisateur doit pouvoir filtrer les recettes selon deux axes :
 
@@ -28,11 +28,11 @@ les appareils.
 
 
 
-**On a fait 2 versions du code pour tester la performance du site :
+On a fait 2 versions du code pour tester la performance du site :
 
 • Une version utilisant les boucles natives (while, for...) 
 
-• Et une version en programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce).**
+• Et une version en programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce).
 
 ================ EN ====================
 
