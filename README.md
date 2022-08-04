@@ -27,8 +27,7 @@ description.
 les appareils.
 
 
-
-On a fait 2 versions du code pour tester la performance du site :
+## On a fait 2 versions du code pour tester la performance du site :
 
 • Une version utilisant les boucles natives (while, for...) 
 
