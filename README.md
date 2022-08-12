@@ -33,6 +33,8 @@ L’utilisateur doit pouvoir filtrer les recettes selon deux axes :
 - Une version utilisant les boucles natives (while, for...) 
 - Et une version en programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce).
 
+<br>
+
 <b><p align="center">
 ================ EN ====================
 </p></b>
