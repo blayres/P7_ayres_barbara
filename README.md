@@ -4,9 +4,11 @@
 
 **Link : https://blayres.github.io/P7_ayres_barbara/**
 
+<br>
 <b><p align="center">
-================ FR ====================
+================================ FR ====================================
 </p></b>
+<br>
 
 Après avoir édité des livres de cuisine pendant plusieurs années, l’entreprise a décidé de se lancer dans un nouveau projet : réaliser son propre site de recettes de cuisine à l’instar de Marmiton ou 750g.
 
@@ -34,10 +36,10 @@ L’utilisateur doit pouvoir filtrer les recettes selon deux axes :
 - Et une version en programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce).
 
 <br>
-
 <b><p align="center">
-================ EN ====================
+================================ EN ====================================
 </p></b>
+<br>
   
 After editing several cookbooks for years, a company has decided to jump into a new challeging project : developing their own website of cooking recipes (similar to [Marmiton](https://www.marmiton.org/) or [750g](https://www.750g.com/)).
 
