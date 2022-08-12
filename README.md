@@ -1,3 +1,5 @@
+![README_banner](README_banner.png)
+
 # Les Petits Plats - Développement d'un algorithme de recherche en JavaScript
 
 ================ FR ====================
